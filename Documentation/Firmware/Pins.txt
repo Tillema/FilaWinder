@@ -1,0 +1,32 @@
+This firmware is written by Simon Tillema for a mechanism to spool filaments
+on empty rolls.
+You can use this firmware without any restriction, but note that using it is
+at your own risk. I do not take any responsibility for any harm caused by my
+code or the self-fabricated mechanism.
+
+
+----------------------------------------------------------------------------
+----------------------------------- PINS -----------------------------------
+----------------------------------------------------------------------------
+
+Arduino nano with custom-made PCB:
+ 2: LCD_D7
+ 3: DIR_SPOOLER
+ 4: STEP_SPOOLER
+ 5: MS2_SPOOLER
+ 6: MS1_SPOOLER
+ 7: LCD_D6
+ 8: DIR_GUIDER
+ 9: STEP_GUIDER
+10: LCD_D5
+11: MS2_GUIDER
+12: MS1_GUIDER
+13: ENC_CLK
+A0: ENC_DATA
+A1: LCD_D4
+A2: LCD_EN
+A3: BUZZER
+A4: ENC_BTN
+A5: LCD_RS
+A6: Not used
+A7: LCD_D7

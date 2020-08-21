@@ -1,0 +1,19 @@
+This firmware is written by Simon Tillema for a mechanism to spool filaments
+on empty rolls.
+You can use this firmware without any restriction, but note that using it is
+at your own risk. I do not take any responsibility for any harm caused by my
+code or the self-fabricated mechanism.
+
+
+----------------------------------------------------------------------------
+--------------------------- USED EEPROM ADRESSES ---------------------------
+----------------------------------------------------------------------------
+
+Arduino Nano (512 bytes):
+  0: (size 2) EEPROM initializer
+  2: (size 1) Material (number are filament names as set in Configuration.h)
+  3: (size 4) Filament diameter
+  7: (size 2) Spool size
+  9: (size 2) Spool diameter
+ 11: (size 2) Speed
+ 13: (size 2) Acceleration
