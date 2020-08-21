@@ -53,7 +53,37 @@ byte DDRD_controller_mask = B10000100; // B1xxxx1xx
 // --------------------------- MENU ITEMS ARRAYS --------------------------- //
 // ------------------------------------------------------------------------- //
 
+String draw_state[] = {
+    "IDLE",                 // 0
+    "SPOOLING",             // 1
+    "PAUSED"                // 2
+};
+
 String bootscreen_items[] = {
     "     FILAWINDER     ", // 0
     "  by Simon Tillema  "  // 1
+};
+
+String homescreen_items[] = {
+    "Length ",              // 0
+    "IDLE",                 // 1 -> state == 0
+    "SPOOLING",             // 2 -> state == 1
+    "PAUSED"                // 3 -> state == 2
+    "Weight ",              // 4
+    "Material ",            // 5
+    "MENU",                 // 6
+    "START!",               // 7 BUTTON2 -> state == 0
+    " WAIT ",               // 8 BUTTON2 -> state == 1
+    "RESUME"                // 9 BUTTON2 -> state == 2
+};
+
+String main_menu_items[] = {
+    "Home",                 // 0
+    "Start!",               // 1 BUTTON3 -> state == 0
+    " Wait ",               // 2 BUTTON3 -> state == 1
+    "Resume",               // 3 BUTTON3 -> state == 2
+    "Settings",             // 4
+    "Reboot",               // 5 BUTTON4 -> state == 0
+    "Kill",                 // 6 BUTTON4 -> state == 1
+    "Stop"                  // 7 BUTTON4 -> state == 2
 };

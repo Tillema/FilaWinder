@@ -11,7 +11,7 @@
 
 // Initial average filament diameter in mm. This setting can be modified on the
 // display and will be written to the EEPROM storage.
-#define DEFAULT_FILAMENT_DIAMETER 1.75 // mm
+// #define DEFAULT_FILAMENT_DIAMETER 1.75 // mm
 
 // Filaments with their properties as shown in the selection on the display. It
 // is possible to add new filaments to the list by adding them. The order below
@@ -19,7 +19,7 @@
 // the EEPROM storage. Filament names may not be longer than 11 characters. The
 // first option is selected on the very first boot.
 #define FILAMENT_NAME    {"PLA", "ABS", "PETG", "Nylon", "Flex", "PVA", "HIPS"}
-#define FILAMENT_DENSITY { 1.24,  1.04,   1.23,     1.1,    1.2,  1.23,   1.03}
+// #define FILAMENT_DENSITY { 1.24,  1.04,   1.23,     1.1,    1.2,  1.23,   1.03}
 // used source: simplify3d.com/support/materials-guide/properties-table/
 
 
@@ -31,13 +31,13 @@
 // in order to know the spool size. Set COMPLETING to false in order to end the
 // windings halfway the spool in order to get the exact weight. Enabling should
 // result in some overshoot on a spool.
-#define DEFAULT_SPOOL_SIZE 1000 // g
+// #define DEFAULT_SPOOL_SIZE 1000 // g
 //#define COMPLETING
 
 // Set the default diameter of the barrel of the spool. Every spool consists of
 // at least 3 parts: the barrel and two sides. This option denotes the diameter
 // of that barrel. Integers only allowed.
-#define DEFAULT_BARREL_DIAMETER 100 // mm
+// #define DEFAULT_BARREL_DIAMETER 100 // mm
 
 
 // ------------------------------------------------------------------------- //
@@ -70,9 +70,9 @@
 // Set the default and maximum spooling speeds. The default speed can be set on
 // the display. Set the acceleration based on the used stepper current. Stepper
 // motors with a high current can handle higher acceleration values.
-#define DEFAULT_SPOOLING_SPEED 25 // mm/s
+// #define DEFAULT_SPOOLING_SPEED 25 // mm/s
 //#define MAX_SPOOLING_SPEED 50 // mm/s
-#define ACCELERATION 500 // mm/s²
+// #define ACCELERATION 500 // mm/s²
 
 // Set the direction of the home position. This considers the start position of
 // the filament on the spool. Set to 0 to start in the back or to 1 to start in
