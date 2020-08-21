@@ -27,42 +27,33 @@
 //                  | 9 10 |
 //                  └------┘
 
-// Display
-#define PIN_RS      A5 // DDRC Bxx1xxxxx
-#define PIN_EN      A2 // DDRC Bxxxxx1xx
-#define PIN_LCD4    A1 // DDRC Bxxxxxx1x
-#define PIN_LCD5    10 // DDRB Bxxxxx1xx
-#define PIN_LCD6     7 // DDRD B1xxxxxxx
-#define PIN_LCD7     2 // DDRD Bxxxxx1xx
-
-// Buzzer
-#define PIN_BUZZER  A3 // DDRC Bxxxx1xxx
-
-// Rotary encoder
-#define PIN_CLK     13 // DDRB Bxx0xxxxx
-#define PIN_DATA    A0 // DDRC Bxxxxxxx0
-#define PIN_BTN     A4 // DDRC Bxxx0xxxx
-
-// Pinout masks
-byte DDRB_controller_mask = B00000100; // Bxx0xx1xx
-byte DDRC_controller_mask = B00101110; // Bxx101110
-byte DDRD_controller_mask = B10000100; // B1xxxx1xx
-
 
 // ------------------------------------------------------------------------- //
 // --------------------------- MENU ITEMS ARRAYS --------------------------- //
 // ------------------------------------------------------------------------- //
 
-String draw_state[] = {
-    "IDLE",                 // 0
-    "SPOOLING",             // 1
-    "PAUSED"                // 2
-};
+/* Homescreen:
+* ┌----------------------┐
+* |                      |
+* |      FILAWINDER      |
+* |   by Simon Tillema   |
+* |                      |
+* └----------------------┘
+*/
 
 String bootscreen_items[] = {
     "     FILAWINDER     ", // 0
     "  by Simon Tillema  "  // 1
 };
+
+/* Homescreen:
+* ┌----------------------┐
+* | Length XXXm     IDLE | -> IDLE/SPOOLING/PAUSED
+* | Weight XXXX/XXXXg    |
+* | Material XXXXXXXXXXX |
+* |    MENU      WAIT    | -> WAIT/START!/RESUME
+* └----------------------┘
+*/
 
 String homescreen_items[] = {
     "Length ",              // 0
@@ -76,6 +67,15 @@ String homescreen_items[] = {
     " WAIT ",               // 8 BUTTON2 -> state == 1
     "RESUME"                // 9 BUTTON2 -> state == 2
 };
+
+/* Main menu:
+* ┌----------------------┐
+* |                      |
+* |   Home      Start!   | -> Start!/Wait/Resume
+* | Settings    Reboot   | -> Reboot/Kill
+* |                      |
+* └----------------------┘
+*/
 
 String main_menu_items[] = {
     "Home",                 // 0
