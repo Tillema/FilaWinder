@@ -10,10 +10,8 @@ code or the self-fabricated mechanism.
 ----------------------------------------------------------------------------
 
 Arduino Nano (512 bytes):
-  0: (size 2) EEPROM initializer
-  2: (size 1) Material (number are filament names as set in Configuration.h)
-  3: (size 4) Filament diameter
-  7: (size 2) Spool size
-  9: (size 2) Spool diameter
- 11: (size 2) Speed
- 13: (size 2) Acceleration
+  0: (size 4) EEPROM initializer
+  4: (size 1) Material (number are filament names as set in Configuration.h)
+  5: (size 2) Spool size
+  7: (size 2) Barrel diameter
+  9: (size 2) Speed

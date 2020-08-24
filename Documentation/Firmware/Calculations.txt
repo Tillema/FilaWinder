@@ -1,0 +1,35 @@
+// This firmware is written by Simon Tillema for a mechanism to spool filaments
+// on empty rolls.
+// You can use this firmware without any restriction, but note that using it is
+// at your own risk. I do not take any responsibility for any harm caused by my
+// code or the self-fabricated mechanism.
+
+
+// ------------------------------------------------------------------------- //
+// --------------------------- DISTANCE PER WIND --------------------------- //
+// ------------------------------------------------------------------------- //
+
+Depending on how much RAM the processor has, either straight windings or skewed
+windings can be used for calculating the distance. The difference at a spool of
+1kg with 1.75mm and is roughly 2 meters / 5 grams.
+
+Total length of one winding on the first layer WITHOUT sideward displacement at
+layer n:
+    straight_winding = pi * (d_barrel + d_filament * n)
+
+Total length of one winding on the first layer, WITH sideward displacement:
+    skew_winding = sqrt(d_filament ^ 2 + straight_winding ^ 2)
+
+
+// ------------------------------------------------------------------------- //
+// --------------------------- DISTANCE PER STEP --------------------------- //
+// ------------------------------------------------------------------------- //
+
+Steps per full rotation:
+    steps_full = steps_motor * microsteps
+
+Distance per step first layer WITHOUT sideward displacement:
+    distance_per_step_straight_winding = straight_winding / steps_full
+
+Distance per step first layer WITH sideward displacement:
+    distance_per_step_skew_winding = skew_winding / steps_full

@@ -11,6 +11,7 @@
 
 #include "Configuration.h"
 #include "Display.h"
+#include <EEPROM.h>
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(A5, A2, A1, 10, 7, 2);
@@ -19,18 +20,25 @@ byte current_menu = 0;  // 0 = homescreen, 1 = main menu, 2 = settings
 byte current_state = 0; // 0 = idle, 1 = spooling, 2 = paused
 
 byte state_length = 0;
+
+
+float current_EEPROM_version = 0.0;
+float configured_EEPROM_version;
+byte material;
+int spool_size;
+int barrel_diameter;
+int speed;
+
+int current_length = 0;
+int current_weight = 0;
+
 const char* filament_name[] = FILAMENT_NAME;
-
-byte material = 0;
-int current_length = 200;
-int current_weight = 1050;
-
-int spool_size = 1000;
 
 bool encoder_state;
 bool previous_encoder_state = 0;
 bool button_state;
 bool previous_button_state = 0;
+
 
 // ------------------------------------------------------------------------- //
 // ------------------------------- FUNCTIONS ------------------------------- //
@@ -50,6 +58,32 @@ void initialize_display(){
         lcd.setCursor(0, 2); lcd.print(bootscreen_items[1]);
         delay(1000);
     #endif
+}
+
+void initialize_EEPROM(){
+    configured_EEPROM_version = EEPROM_VERSION;
+    EEPROM.get(0, current_EEPROM_version);
+    if(current_EEPROM_version != configured_EEPROM_version){
+        // Update EEPROM to current version
+        EEPROM.put(0, configured_EEPROM_version);
+        // Write material
+        material = 0;
+        EEPROM.write(4, material);
+        // Write defualt spool size
+        spool_size = DEFAULT_SPOOL_SIZE;
+        EEPROM.put(5, spool_size);
+        // Write default barrel diameter
+        barrel_diameter = DEFAULT_BARREL_DIAMETER;
+        EEPROM.put(7, barrel_diameter);
+        // Write default speed
+        speed = DEFAULT_SPOOLING_SPEED;
+        EEPROM.put(9, speed);
+    }else{
+        material = EEPROM.read(4);
+        EEPROM.get(5, spool_size);
+        EEPROM.get(7, barrel_diameter);
+        EEPROM.get(9, speed);
+    }
 }
 
 void draw_homescreen(){
@@ -106,7 +140,6 @@ void rotary_encoder(){
     previous_button_state = button_state;
 }
 
-
 // ------------------------------------------------------------------------- //
 // -------------------------------- PROGRAM -------------------------------- //
 // ------------------------------------------------------------------------- //
@@ -115,6 +148,7 @@ void setup(){
     //Serial.begin(BAUDRATE);
     set_pins();
     initialize_display();
+    initialize_EEPROM();
     draw_homescreen();
 }
 
