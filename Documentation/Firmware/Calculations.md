@@ -16,7 +16,7 @@ Let's first introduce a few variables:
 #### Total length
 Total length of 1 winding on the any layer ($n$) _without_ sideward displacement:
 
-$l=\pi(d_b+nd_f)$
+<img src="https://latex.codecogs.com/gif.latex?l=\pi&space;(d_b&plus;nd_f)" title="l=\pi (d_b+nd_f)" />
 
 Total length of 1 winding on the any layer ($n$) _with_ sideward displacement:
 
