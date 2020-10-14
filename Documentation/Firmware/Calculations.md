@@ -16,16 +16,16 @@ Let's first introduce a few variables:
 #### Total length
 Total length of 1 winding on the any layer ($n$) _without_ sideward displacement:
 
-$l=\pi(d_b+nd_f)$
+![1](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq1.png?raw=true)
 
 Total length of 1 winding on the any layer ($n$) _with_ sideward displacement:
 
-$l=\sqrt{d_n^2+(\pi(d_b+nd_f))^2}$
+![2](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq2.png?raw=true)
 
 #### Steps per mm
 Steps for a full rotation:
 
-$s_r=s_mm$
+![3](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq3.png?raw=true)
 
 Distance per step on any layer ($n$) _without_ sideward displacement:
 
