@@ -56,7 +56,7 @@ const uint8_t num_of_filaments = sizeof(densities) / sizeof(densities[0] - 1);
 // ------------------------------------------------------------------------- //
 
 void update_status(){
-    if(state == 0 || state == 1){
+    if(state < 2){
         state++;
     }else{
         state = 1;
@@ -150,17 +150,9 @@ void update_material_menu(bool direction){
     current_menu = 3;
     lcd.clear();
     if(direction){
-        if(material_selection == num_of_filaments){
-            material_selection = num_of_filaments;
-        }else{
-            material_selection++;
-        }
+        if(material_selection < num_of_filaments) material_selection++;
     }else{
-        if(material_selection == 0){
-            material_selection = 0;
-        }else{
-            material_selection--;
-        }
+        if(material_selection > 0) material_selection--;
     }
     if(material_selection - 4 > lower_bound) lower_bound++;
     if(material_selection < lower_bound) lower_bound--;
@@ -177,11 +169,7 @@ void draw_selector(bool direction){
     if(direction){
         selection++;
     }else{
-        if(selection == 0){
-            selection = 0;
-        }else{
-            selection--;
-        }
+        if(selection > 0) selection--;
     }
     if(current_menu == 0){ // Homescreen
         if(direction) homescreen_activated = true;
