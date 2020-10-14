@@ -1,5 +1,7 @@
 {
     "programmer": "AVR ISP",
-    "board": "arduino:avr:uno",
-    "sketch": "Firmware\\Firmware.ino"
+    "board": "arduino:avr:nano",
+    "sketch": "Firmware\\Firmware.ino",
+    "configuration": "cpu=atmega168",
+    "port": "COM4"
 }
