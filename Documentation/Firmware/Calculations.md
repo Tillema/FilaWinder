@@ -3,12 +3,12 @@
 _This firmware is written by Simon Tillema for a mechanism to spool filaments on empty rolls. You can use this firmware without any restriction, but note that using it is at your own risk. I do not take any responsibility for any harm caused by my code or the self-fabricated mechanism._
 
 Let's first introduce a few variables:
-- $s_f$ = Steps per revolution
-- $m$ = number of microsteps
-- $s_r$ = steps per full rotation
-- $d_f$ = diameter of the filament
-- $d_b$ = diameter of the barrel
-- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/images/n.png?raw=true) = layer number
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/sf.png?raw=true) = Steps per revolution
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/m.png?raw=true) = number of microsteps
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/sr.png?raw=true) = steps per full rotation
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/df.png?raw=true) = diameter of the filament
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/db.png?raw=true) = diameter of the barrel
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/n.png?raw=true) = layer number
 
 ### Calculations
 >Depending on how much RAM the processor has, either straight or skewed windings could be used for calculating the distance. For a 1kg spool (1.75mm filament), the difference is roughly 2 meters or 5 grams.
