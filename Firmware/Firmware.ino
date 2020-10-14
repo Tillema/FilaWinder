@@ -157,10 +157,9 @@ void update_material_menu(bool direction){
     if(material_selection - 4 > lower_bound) lower_bound++;
     if(material_selection < lower_bound) lower_bound--;
     selection = material_selection - lower_bound;
-    lcd.setCursor(1, 0); lcd.print(filament_name[lower_bound]);
-    lcd.setCursor(1, 1); lcd.print(filament_name[lower_bound + 1]);
-    lcd.setCursor(1, 2); lcd.print(filament_name[lower_bound + 2]);
-    lcd.setCursor(1, 3); lcd.print(filament_name[lower_bound + 3]);
+    for(int i = 0; i < 4; i++){
+        lcd.setCursor(1, i); lcd.print(filament_name[lower_bound + i]);
+    }
 }
 
 void draw_selector(bool direction){
