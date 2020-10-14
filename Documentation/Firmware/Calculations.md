@@ -14,11 +14,11 @@ Let's first introduce a few variables:
 >Depending on how much RAM the processor has, either straight or skewed windings could be used for calculating the distance. For a 1kg spool (1.75mm filament), the difference is roughly 2 meters or 5 grams.
 
 #### Total length
-Total length of 1 winding on the any layer (![n](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/n.png?raw=true)) _without_ sideward displacement:
+Total length of 1 winding on any layer (![n](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/n.png?raw=true)) _without_ sideward displacement:
 
 ![1](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq1.png?raw=true)
 
-Total length of 1 winding on the any layer (![n](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/n.png?raw=true)) _with_ sideward displacement:
+Total length of 1 winding on any layer (![n](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/n.png?raw=true)) _with_ sideward displacement:
 
 ![2](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq2.png?raw=true)
 
