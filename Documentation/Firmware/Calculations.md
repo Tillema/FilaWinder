@@ -29,8 +29,8 @@ Steps for a full rotation:
 
 Distance per step on any layer ($n$) _without_ sideward displacement:
 
-$s_r=\frac{\pi(d_b+nd_f)}{s_mm}$
+![4](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq4.png?raw=true)
 
 Distance per step on any layer ($n$) _with_ sideward displacement:
 
-$s_r=\frac{\sqrt{d_n^2+(\pi(d_b+nd_f))^2})}{s_mm}$
+![5](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/EquationImages/eq5.png?raw=true)
