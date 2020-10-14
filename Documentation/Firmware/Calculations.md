@@ -8,7 +8,7 @@ Let's first introduce a few variables:
 - $s_r$ = steps per full rotation
 - $d_f$ = diameter of the filament
 - $d_b$ = diameter of the barrel
-- !(https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/images/n.png?raw=true) = layer number
+- ![](https://github.com/Tillema/FilaWinder/blob/master/Documentation/Firmware/images/n.png?raw=true) = layer number
 
 ### Calculations
 >Depending on how much RAM the processor has, either straight or skewed windings could be used for calculating the distance. For a 1kg spool (1.75mm filament), the difference is roughly 2 meters or 5 grams.
