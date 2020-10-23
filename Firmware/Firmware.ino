@@ -32,19 +32,20 @@ const char* echo_msg = "Echo: ";
 
 // Following variables will be updated through the process.
 uint8_t state = 0; // 0 = idle, 1 = spooling, 2 = paused
-uint16_t length = 1000;
-uint16_t weight = 1000;
+uint16_t length = 152;
+uint16_t weight = 568;
 uint8_t material = 0;
 
 // Following variables and objects regards the controller.
 LiquidCrystal lcd{RS_PIN, EN_PIN, D4_PIN, D5_PIN, D6_PIN, D7_PIN};
 bool prev_enc_state_A = 0, curr_enc_state_A, state_B;
 bool prev_button_state = 0, curr_button_state;
-unsigned long timer = 0;
+unsigned long current_time = 0;
 bool timer_activated = 0;
 uint8_t current_menu = 0;
 bool homescreen_activated = 0;
-uint8_t selection = 0, material_selection = 0, lower_bound = 0;
+uint8_t selection = 0, material_selection = 0;
+uint8_t current_lower_bound = 0;
 
 // Other variables
 double EEPROM_version;
@@ -154,11 +155,12 @@ void update_material_menu(bool direction){
     }else{
         if(material_selection > 0) material_selection--;
     }
-    if(material_selection - 4 > lower_bound) lower_bound++;
-    if(material_selection < lower_bound) lower_bound--;
-    selection = material_selection - lower_bound;
+    if(material_selection - 4 > current_lower_bound) current_lower_bound++;
+    if(material_selection < current_lower_bound) current_lower_bound--;
+    selection = material_selection - current_lower_bound;
     for(int i = 0; i < 4; i++){
-        lcd.setCursor(1, i); lcd.print(filament_name[lower_bound + i]);
+        lcd.setCursor(1, i);
+        lcd.print(filament_name[current_lower_bound + i]);
     }
 }
 
@@ -288,11 +290,6 @@ void select(){
     if(current_menu < 4) draw_selector(0);
 }
 
-void activate_timer(){
-    timer = millis();
-    timer_activated = true;
-}
-
 
 // ------------------------------------------------------------------------- //
 // ------------------------------- MAIN CODE ------------------------------- //
@@ -353,9 +350,10 @@ void setup(){
 }
 
 void loop(){
+    current_time = millis();
     // Read timer
     if(timer_activated){
-        if(millis() - timer >= duration){ // if timer expired
+        if(millis() - current_time >= duration){ // if timer expired
             homescreen_activated = false;
             draw_homescreen();
             timer_activated = false;
@@ -367,13 +365,13 @@ void loop(){
     curr_button_state = (PINC & _BV (4)) == 0;
     if(prev_enc_state_A && !curr_enc_state_A){
         draw_selector(state_B);
-        activate_timer();
+        timer_activated = true;
     }
     prev_enc_state_A = curr_enc_state_A;
     // Encoder button
     if(prev_button_state && !curr_button_state){
         select();
-        activate_timer();
+        timer_activated = true;
     }
     prev_button_state = curr_button_state;
 }
